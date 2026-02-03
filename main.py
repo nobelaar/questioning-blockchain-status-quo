@@ -1,5 +1,16 @@
+import scripts.fetch_blocks as fetch_blocks
+from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
+if not getenv("ETHEREUM_RPC_URL"):
+    raise RuntimeError("ETHEREUM_RPC_URL not found in .env")
+if not getenv("POLYGON_RPC_URL"):
+    raise RuntimeError("POLYGON_RPC_URL not found in .env")
+
 def main():
-    print("Hello from datascience!")
+    
+    fetch_blocks.fetch_blocks("ethereum")
+    fetch_blocks.fetch_blocks("polygon")
 
 
 if __name__ == "__main__":
