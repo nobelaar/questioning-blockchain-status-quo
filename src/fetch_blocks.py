@@ -1,8 +1,12 @@
 from web3 import Web3
 import pandas as pd
+import os
+from dotenv import load_dotenv
 
-RPC_URL = "https://rpc.linea.build"
-N_BLOCKS = 500
+load_dotenv()
+
+RPC_URL = os.getenv("RPC_URL")
+N_BLOCKS = 1000
 
 w3 = Web3(Web3.HTTPProvider(RPC_URL))
 
