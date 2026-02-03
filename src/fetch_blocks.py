@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-RPC_URL = os.getenv("RPC_URL")
+RPC_URL = os.getenv("LINEA_RPC_URL")
 N_BLOCKS = 1000
 
 w3 = Web3(Web3.HTTPProvider(RPC_URL))
