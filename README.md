@@ -37,14 +37,20 @@ Investigar quién ejerce el poder real en Linea a través del análisis de:
 
 ## 📦 Dataset
 
-Los datos se obtienen directamente desde el RPC público de Linea:
+Los datos se obtienen desde RPC y, cuando corresponde, desde la Beacon API de Ethereum:
 
 - `block_number`
 - `timestamp`
-- `proposer` (address que produce el bloque)
+- `proposer` (en Ethereum: **pubkey** del validador proposer; en L2/otras EVM: `miner/beneficiary` del execution layer)
+- `proposer_index` (solo Ethereum)
+- `proposer_pubkey` (solo Ethereum)
+- `slot` (solo Ethereum)
+- `builder_pubkey` (si hay relay MEV-Boost configurado)
 
-Fuente:
+Fuentes:
 - RPC público de Linea (`https://rpc.linea.build`)
+- Beacon API de Ethereum (para proposer real, no fee recipient)
+- Relay MEV-Boost (opcional, para builder)
 
 ---
 
